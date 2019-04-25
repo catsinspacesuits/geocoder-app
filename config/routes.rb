@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-	root 'locations#find_coordinates'
+  root 'locations#index'
+  devise_for :users
 	resources :locations do
 		collection do
 			get 'find_coordinates'

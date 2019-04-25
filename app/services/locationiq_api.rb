@@ -1,8 +1,7 @@
+
 class LocationiqApi
   include HTTParty
   BASE_URI = "https://eu1.locationiq.com/v1/search.php"
-
-  attr_accessor :city
 
   def initialize(api_key, limit = "1")
     @options = { key: api_key, limit: limit }
