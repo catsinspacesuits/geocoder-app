@@ -17,9 +17,9 @@
   <%= form_tag(locations_path, method: :get) do %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("geocode") %>
+    <%= @message %>
   <% end %><br>
 
-  <h2>Coordinates:</h2>
   <%= @coordinates %>
 </main>
 
