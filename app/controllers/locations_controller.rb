@@ -7,7 +7,8 @@ class LocationsController < ApplicationController
       return
     end
   
-    search = LocationiqApi.new('pk.d905eb6bf7b095ff4b883766bb357766').find_place(params[:q])
+    token = Rails.application.credentials.locationiq_key
+    search = LocationiqApi.new(token).find_place(params[:q])
 
     # Hash#dig will return nil if ANY part of the lookup fails
     latitude = search.dig('searchresults', 'place', 'lat')
