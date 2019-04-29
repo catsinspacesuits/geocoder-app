@@ -2,8 +2,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @message = ''
-    if params[:q].blank?
+    if params[:location_search] && params[:q].blank?
       @message = 'Please enter an address in the field!'
       return
     end

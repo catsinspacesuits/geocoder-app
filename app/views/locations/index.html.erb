@@ -1,14 +1,4 @@
 <main>
-  <ul class="nav navbar-nav navbar-right">
-    <!-- Log out shows when logged in. Log in shows when not logged in -->
-    <% if user_signed_in? %>
-      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <li><%= link_to "Log In", new_user_session_path %></li>
-    <% end %>
-  </ul>
-
   <h1>Location Search</h1>
   <!-- devise flash messages -->
   <p class="notice"><%= notice %></p>
@@ -16,6 +6,7 @@
   <!-- Button to search coordinates -->
   <%= form_tag(locations_path, method: :get) do %>
     <%= text_field_tag(:q) %>
+    <%= hidden_field_tag 'location_search', true %>
     <%= submit_tag("geocode") %>
     <%= @message %>
   <% end %><br>
