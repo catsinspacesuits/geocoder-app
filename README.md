@@ -1,24 +1,11 @@
-# README
+# Geocoder App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To start geocoding you must first sign up. This is quick and no email confirmation is required. Following this, users are able to pass an address or place name as a string into the search field and the latitude and longitude will be returned.
 
-Things you may want to cover:
+The app uses the LocationIQ API to return the coordinates in JSON format. If the LocationIQ API cannot find the place the users searched for, an error message will be raised asking the user to try again. If the user enters a blank input a different error message will be raised, asking them to fill in the search field.
 
-* Ruby version
+You can find a live version of the app [here](https://geocoder-app.herokuapp.com)
 
-* System dependencies
+Ruby version 2.6.0 and Rails version 5.2.3 are used.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
