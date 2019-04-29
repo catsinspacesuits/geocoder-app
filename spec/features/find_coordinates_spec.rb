@@ -28,5 +28,4 @@ feature 'find coordinates' do
     fill_in 'q', with: q
     click_button 'geocode'
   end
-
 end

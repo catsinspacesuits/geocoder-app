@@ -1,4 +1,3 @@
-
 class LocationiqApi
   include HTTParty
   BASE_URI = "https://eu1.locationiq.com/v1/search.php"
