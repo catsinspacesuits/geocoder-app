@@ -9,19 +9,23 @@ feature 'find coordinates' do
     expect(page).to have_content('51.5073219, -0.1276474')
   end
 
-  scenario 'with invalid email' do
-    sign_up_with 'invalid_email', 'password', 'password'
-    expect(page).to have_content('Sign up')
+  scenario 'with invalid place name' do
+  	user = User.create(email: 'test@test.com', password: "password", password_confirmation: "password")
+  	sign_in user
+    geocode('asasdasfsdfsdfsdf')
+    expect(page).to have_content('We couldn\'t find a place by this name')
   end
 
-  scenario 'with blank password' do
-    sign_up_with 'valid@example.com', '', ''
-    expect(page).to have_content('Password can\'t be blank')
+  scenario 'with blank place name' do
+  	user = User.create(email: 'test@test.com', password: "password", password_confirmation: "password")
+  	sign_in user
+    geocode('')
+    expect(page).to have_content('Please enter an address in the field')
   end
 
   def geocode(q)
-    visit locations_path
-    fill_in 'text_field_tag', with: q
+    visit search_locations_path
+    fill_in 'q', with: q
     click_button 'geocode'
   end
 

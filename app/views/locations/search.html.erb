@@ -4,11 +4,10 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <!-- Button to search coordinates -->
-  <%= form_tag(locations_path, method: :get) do %>
-    <%= text_field_tag(:q) %>
-    <%= hidden_field_tag 'location_search', true %>
-    <%= submit_tag("geocode") %>
+  <%= form_tag(search_locations_path, method: :get) do %>
     <%= @message %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("geocode") %>  
   <% end %><br>
 
   <%= @coordinates %>
